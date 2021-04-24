@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    h3{
+      text-align: center;
+      background-color: whitesmoke;
+      padding: 5px;
+    }
+    ul{
+      list-style: none;
+      display: flex;
+      padding: 7px;
+    }
+    li{
+      flex: 1;
+      text-align: center;
+    }
+    ul li a{
+      text-decoration:none;
+      color: black;
+    }
+    div{
+      width: 400px;
+      height: 400px;
+      margin: auto;
+      margin-top: 100px;
+    }
+    div img {
+      width: 100%;
+      height: 100%;
+
+    }
+    p{
+      text-align: center;
+      width: 200px;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+<h3>图片库</h3>
+<ul>
+  <li>
+    <a href="img/pic1.jpg" title="A pic1" onclick = "show(this);return false" >pic1</a>
+  </li>
+  <li>
+    <a href="img/pic2.jpg" title="A pic2" onclick = "show(this);return false">pic2</a>
+  </li>
+  <li>
+    <a href="img/pic3.jpg" title="A pic3" onclick = "show(this);return false">pic3</a>
+  </li>
+  <li>
+    <a href="img/pic4.jpg" title="A pic4" onclick = "show(this);return false">pic4</a>
+  </li>
+</ul>
+<div>
+  <img id = "placeholder" src="img/zhuye.jpg" alt="">
+</div>
+<p id = "description">choose a image</p>
+<script>
+  console.log(document.getElementById("description").childNodes[0].nodeValue);
+  let show = function(node) {
+    console.log(node);
+    let source = node.getAttribute("href");
+    document.getElementById("placeholder").setAttribute("src",source);
+
+    let text = node.getAttribute("title");
+    console.log(document.getElementById("description").nodeValue);
+    // document.getElementById("description").setAttribute("")
+    document.getElementById("description").childNodes[0].nodeValue = text
+  }
+</script>
+</body>
+</html>
